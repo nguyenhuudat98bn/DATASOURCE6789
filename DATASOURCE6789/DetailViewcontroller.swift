@@ -8,10 +8,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class DetailViewcontroller: UIViewController {
+    var name : String?
+    
+    @IBOutlet weak var nameText: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        if name != nil {
+            nameText.text = name
+        }
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -19,7 +24,10 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        name = nameText.text
+    }
+    
+    
 }
 
